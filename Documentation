@@ -1,0 +1,26 @@
+Text summarization refers to the technique of shortening long pieces of text. The intention is to create a coherent and fluent summary having only the main points outlined in the document. Automatic text summarization is a common problem in machine learning and natural language processing (NLP).
+
+In general there are two types of summarization, abstractive and extractive summarization.
+
+1.Abstractive Summarization: Abstractive methods select words based on semantic understanding, even those words did not appear in the source documents.
+
+Input document → understand context → semantics → create own summary.
+
+2. Extractive Summarization: Extractive methods attempt to summarize articles by selecting a subset of words that retain the most important points.
+
+Input document → sentences similarity → weight sentences → select sentences with higher rank.
+
+Algorithm:
+There are many techniques available to generate extractive summarization. Here i will be using unsupervised learning algorithm to find sentence similarity and rank them accordingly.TextRank is an extractive and unsupervised text summarization technique.
+Here Cosine similarity is used to measure similarity between two non-zero vectors of an inner product space that measures the cosine of the angle between them.The angle will be 0 if sentences are similar.
+
+nput article → split into sentences → remove stop words → build a similarity matrix → generate rank based on matrix → pick top N sentences for summary.
+
+We have used textrank as an approach to rank the sentences. TextRank does not rely on any previous training data and can work with any arbitrary piece of text. TextRank is a general purpose graph-based ranking algorithm for NLP.
+
+#The first step would be to concatenate all the text contained in the articles
+#Then split the text into individual sentences
+#In the next step, we will find vector representation (word embeddings) for each and every sentence
+Similarities between sentence vectors are then calculated and stored in a matrix
+#The similarity matrix is then converted into a graph, with sentences as vertices and similarity scores as edges, for sentence rank calculation
+#Finally, a certain number of top-ranked sentences form the final summary
